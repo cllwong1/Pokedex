@@ -1,0 +1,25 @@
+.pokemon_image{
+    width: 140px;
+    height: 140px;
+}
+
+body {
+    counter-reset: my-sec-counter;
+  }
+  
+.col:after {
+    counter-increment: my-sec-counter;
+    content: "00" counter(my-sec-counter);
+}
+
+.col:nth-child(n+10):after{
+    content: "0" counter(my-sec-counter)
+}
+
+.col:nth-child(n+100):after{
+    content: counter(my-sec-counter)
+}
+
+/* .col:nth-child(n+1000):after{
+    content: counter(my-sec-counter)
+} */
