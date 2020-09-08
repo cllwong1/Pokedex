@@ -1,30 +1,57 @@
-.image_wrapper{
+.image-wrapper{
   position: relative;
-  padding: 12.5%;
-  border: 2px solid black;
+  overflow: hidden;
+  padding-bottom: 100%;
+  height: 0;
+  display: block;
+  width: 100%;
   border-radius: 50%;
-  width: 90%;
-  height: 90%;
-  margin: 0 auto;
+  border: 1px solid black;
 }
 
 .pokemon_image{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-}
-
-
-
-.box-wrapper{
-    width:30%;
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 10px auto;
+  padding: 10%;
 }
 
 .row{
     margin: 0 auto;
+    padding: 3% 10%;
+    
 }
+
+.pokemon-id{
+  font-size: 1em;
+  float: left;
+  margin-left: 5%;
+}
+
+.pokemon-name{
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+ 
+}
+
+.col{
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 2% 2%;
+  padding-bottom: 1%;
+}
+
+.text-box{
+  display: inline-block;
+  text-align: center;
+  width: 48%;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 0 auto;
+  font-size: 0.7em;
+}
+
 
