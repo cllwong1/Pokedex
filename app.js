@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
   console.log('hello')
 
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=20',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -40,29 +40,32 @@ document.addEventListener('DOMContentLoaded', function(){
 // }
 
 function extract_data(data){
-  let div_row = document.querySelector('#id01')
+  let div_row = document.querySelector('#list')
   let div = document.createElement('div')
   // div.setAttribute('id',data.id)
   div.setAttribute('class','col')
+  let order_number = ""+data.id
+  console.log(order_number.length)
+  let pad = "000"
+  let number = pad.substring(0, pad.length - order_number.length) + order_number
   div.innerHTML = `
   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
-  <span>${data.id}</span><br>
+  <span>${number}</span><br>
   <span>${data.name}</span><br>`
-  
   div_row.append(div)
   sortList()
 }
 
 function sortList() {
   var list, i, switching, b, shouldSwitch;
-  list = document.getElementById("id01");
+  list = document.getElementById("list");
   switching = true;
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
     // start by saying: no switching is done:
     switching = false;
-    b = list.getElementsByTagName("DIV");
+    b = list.getElementsByClassName("col");
     
     // Loop through all list-items:
     for (i = 0; i < (b.length - 1); i++) {
@@ -70,7 +73,7 @@ function sortList() {
       shouldSwitch = false;
       /* check if the next item should
       switch place with the current item: */
-      console.log(b)
+      // console.log(b)
       if (Number(b[i].childNodes[4].textContent) > Number(b[i + 1].childNodes[4].textContent)) {
         /* if next item is numerically
         lower than current item, mark as a switch
@@ -128,3 +131,7 @@ function sortList() {
 //     }
 //   }
 // }
+
+var str = "" + 1
+var pad = "0000"
+var ans = pad.substring(0, pad.length - str.length) + str
