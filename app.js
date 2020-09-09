@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
       sortList(e.target.value)
     })
 
-    // sortList()
+
 
   }
 
@@ -96,35 +96,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   /***************************Function to Sort the List**************************************************************/
-  // function sortList() {
-  //   let list = document.getElementById("list");
-  //   let switching = true;
-
-  //   while (switching) {
-  //     switching = false
-  //     let b = list.getElementsByClassName("col-md-2half");
-  //     for (let i=0; i < (b.length - 1); i++) {
-
-  //       if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
-  //           b[i].parentNode.insertBefore(b[i + 1], b[i]);
-  //           switching = true;
-  //       }
-
-  //     }
-  //   }
-  // }
 
   function sortList(dropdown_value) {
 
-  
-
     let list = document.getElementById("list");
     let switching = true;
+
       while (switching) {
         switching = false
         let b = list.getElementsByClassName("col-md-2half");
         for (let i=0; i < (b.length - 1); i++) {
 
+          //To sort by number in ascending order
           if (dropdown_value === "Sort By" || dropdown_value === "opt 1"){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i]);
@@ -132,7 +115,9 @@ document.addEventListener('DOMContentLoaded', function(){
             }
           }
 
-          if (dropdown_value === "opt 2"){
+
+          //To sort by number in descending order
+          else if (dropdown_value === "opt 2"){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i]);
                 switching = true;
@@ -140,22 +125,29 @@ document.addEventListener('DOMContentLoaded', function(){
           }
 
 
+          //To sort by name in ascending order
+          else if (dropdown_value === "opt 3"){
+            if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
+                b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                switching = true;
+            }
+          }
+
+
+          //To sort by name in descending order
+          else if (dropdown_value === "opt 4"){
+            if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
+                b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                switching = true;
+            }
+          }
+
 
         }
       }
-    
-  
-
   }
 
 
-
-
-  // let dropdownlist = document.getElementById('dropdown_list')
-
-  // dropdownlist.addEventListener('change',function(e){
-  //   console.log(e.target.value)
-  // })
 
 
 
