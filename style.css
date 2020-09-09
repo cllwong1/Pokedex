@@ -54,16 +54,16 @@
 .text-box{
   display: inline-block;
   text-align: center;
-  width: 48%;
+  width: 48.5%;
   border-radius: 10px;
   border: 1px solid black;
   font-size: 0.9em;
-  margin-left: 0.5%;
+  /* margin-left: 0.5%; */
 }
 
-.text-box:last-of-type{
+/* .text-box:last-of-type{
   margin-left: 0;
-}
+} */
 
 #dropdown_list{
   width: 50%;
