@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 10%;
+  padding: 12.5%;
 }
 
 .row{
@@ -25,9 +25,9 @@
 }
 
 .pokemon-id{
-  font-size: 1em;
+  font-size: 1.2em;
   float: left;
-  margin-left: 5%;
+  margin-left: 2.5%;
 }
 
 .pokemon-name{
@@ -37,11 +37,18 @@
  
 }
 
-.col{
+.col-md-2half{
   border: 1px solid black;
   border-radius: 20px;
-  margin: 2% 2%;
-  padding-bottom: 1%;
+  margin: 1% auto;
+  padding: 0% 1% 1% 1%;
+  width: 23%;
+}
+
+@media screen and (max-width: 893px){
+  .col-md-2half{
+    width: 45%;
+  }
 }
 
 .text-box{
@@ -50,8 +57,12 @@
   width: 48%;
   border-radius: 10px;
   border: 1px solid black;
-  margin: 0 auto;
-  font-size: 0.7em;
+  font-size: 0.9em;
+  margin-left: 1.2%;
+}
+
+.text-box:last-of-type{
+  margin-left: 0;
 }
 
 
