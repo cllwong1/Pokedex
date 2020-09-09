@@ -41,7 +41,7 @@
   border: 1px solid black;
   border-radius: 20px;
   margin: 1% auto;
-  padding: 0% 1% 1% 1%;
+  padding: 0% 2% 2% 2%;
   width: 23%;
 }
 
@@ -54,16 +54,16 @@
 .text-box{
   display: inline-block;
   text-align: center;
-  width: 47%;
+  width: 45%;
   border-radius: 10px;
   border: 1px solid black;
   font-size: 0.9em;
-  /* margin-left: 0.5%; */
+  margin-left: 4%;
 }
 
-/* .text-box:last-of-type{
+.text-box:last-of-type{
   margin-left: 0;
-} */
+}
 
 #dropdown_list{
   width: 50%;
