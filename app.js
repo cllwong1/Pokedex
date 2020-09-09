@@ -23,22 +23,6 @@ document.addEventListener('DOMContentLoaded', function(){
   
 
 
-
-// function extract_data(data){
-//     let row = document.querySelector('.row')
-//     let div = document.createElement('div')
-//     div.setAttribute('class','col')
-//     div.innerHTML = `
-//       <div class="list_of_pokemon">
-//         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
-//         <div class="pokemon_id">${data.id}</div>
-//         <span>${data.name}</span>
-//         <span>${data.types[0].type.name}</span>
-//       </div>`
-//     row.append(div)
-//     testing()
-// }
-
 function extract_data(data){
   console.log(data)
   let div_row = document.querySelector('#list')
@@ -56,7 +40,7 @@ function extract_data(data){
       <div class="image-wrapper">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
       </div>
-      <span class="pokemon-name">${data.name}</span><br>
+      <span class="pokemon-name">${data.name}</span>
       <div class="text-box">
         <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
       </div>
@@ -69,7 +53,7 @@ function extract_data(data){
         <div class="image-wrapper">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
         </div>
-        <span class="pokemon-name">${data.name}</span><br>
+        <span class="pokemon-name">${data.name}</span>
         <div class="text-box">
           <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
         </div>
@@ -86,34 +70,17 @@ function extract_data(data){
 function sortList() {
   let list = document.getElementById("list");
   let switching = true;
-  /* Make a loop that will continue until
-  no switching has been done: */
+
   while (switching) {
-    // start by saying: no switching is done:
-    switching = false;
-    let shouldSwitch = false;
+    switching = false
     let b = list.getElementsByClassName("col-md-2half");
-    let i = 0
-    // Loop through all list-items:
-    for (i; i < (b.length - 1); i++) {
-      // start by saying there should be no switching:
-      
-      /* check if the next item should
-      switch place with the current item: */
-      // console.log(b)
+    for (let i=0; i < (b.length - 1); i++) {
+
       if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
-        /* if next item is numerically
-        lower than current item, mark as a switch
-        and break the loop: */
-        shouldSwitch = true;
-        break;
+          b[i].parentNode.insertBefore(b[i + 1], b[i]);
+          switching = true;
       }
-    }
-    if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark the switch as done: */
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
-      switching = true;
+
     }
   }
 }
