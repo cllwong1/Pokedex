@@ -105,9 +105,39 @@
 }
 
 
+/*****************Load more section*************************************************************************/
+
+#load-more-btn{
+  width: 30%;
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 1% auto 8% auto;
+  padding: 1%;
+  border-radius: 30px;
+  background-color: black;
+  transition: .3s;
+}
+
+#load-more-btn:hover{
+  color: black;
+  background-color:white;
+  border: 3px solid black;
+  text-decoration: none;
+}
+
+.noContent {
+  color: black !important;
+  background-color: transparent !important;
+  pointer-events: none;
+}
 
 
-
-
+.visually-hidden {  
+  /* overflow: hidden;
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0;  */
+  display: none;
+}
 
 

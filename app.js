@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=10',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=40',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -36,23 +36,7 @@ document.addEventListener('DOMContentLoaded', function(){
     input_data(data)
     sortList("Sort By")
     filter_search_list()
-    // let dropdownlist = document.getElementById('dropdown_list')
-    // dropdownlist.addEventListener('change',function(e){
-    //   e.preventDefault()
-    //   sortList(e.target.value)
-    // })
-
-
-    // let search_button = document.getElementById('search-pokemon-btn')
-    // search_button.addEventListener('click',function(e){
-    //   e.preventDefault()
-    //   let input_text = document.getElementById('input-text').value
-    //   console.log(input_text)
-    // })
-
-
-
-
+    load_more()
   }
 
 
@@ -119,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
       while (switching) {
         switching = false
-        let b = document.getElementsByClassName("col-md-2half");
+        let b = document.getElementsByClassName("col-md-2half")
         for (let i=0; i < (b.length - 1); i++) {
 
           //To sort by number in ascending order
@@ -192,12 +176,47 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
       }
-      
+
     })
-
     
-
   }
+
+  /***********************Load for more function**************************************************************/
+
+  function load_more (){
+
+    let abc = Array.from(document.querySelectorAll('.col-md-2half'))
+    let maxItems = 20
+    let hiddenClass = "visually-hidden"
+
+    abc.forEach(function(item,idx){
+    if (idx > maxItems - 1){
+      item.classList.add(hiddenClass)
+    }
+
+  })
+    
+    
+  }
+
+  
+
+  
+  
+  let abc = Array.from(document.querySelectorAll('.content'))
+  let maxItems = 10
+  let hiddenClass = "visually-hidden"
+
+  abc.forEach(function(item,idx){
+    if (idx > maxItems - 1){
+      item.classList.add(hiddenClass)
+    }
+
+  })
+
+
+
+
 
 
 
@@ -210,3 +229,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
