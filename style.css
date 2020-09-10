@@ -20,7 +20,7 @@
 
 .row{
     margin: 0 auto;
-    padding: 3% 10%;
+    padding: 2% 10%;
     
 }
 
@@ -65,8 +65,14 @@
   margin-left: 0;
 }
 
-#dropdown_list{
-  width: 50%;
+/* #dropdown_list{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+} */
+
+#sort-bar{
+  display: inline-block;
   margin: 0 auto;
 }
 
