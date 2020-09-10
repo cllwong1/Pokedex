@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=200',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=10',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -35,12 +35,21 @@ document.addEventListener('DOMContentLoaded', function(){
 
     input_data(data)
     sortList("Sort By")
+    filter_search_list()
+    // let dropdownlist = document.getElementById('dropdown_list')
+    // dropdownlist.addEventListener('change',function(e){
+    //   e.preventDefault()
+    //   sortList(e.target.value)
+    // })
 
-    let dropdownlist = document.getElementById('dropdown_list')
-    dropdownlist.addEventListener('change',function(e){
-      e.preventDefault()
-      sortList(e.target.value)
-    })
+
+    // let search_button = document.getElementById('search-pokemon-btn')
+    // search_button.addEventListener('click',function(e){
+    //   e.preventDefault()
+    //   let input_text = document.getElementById('input-text').value
+    //   console.log(input_text)
+    // })
+
 
 
 
@@ -98,21 +107,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /***************************Function to Sort the List**************************************************************/
 
+  let dropdownlist = document.getElementById('dropdown_list')
+    dropdownlist.addEventListener('change',function(e){
+      e.preventDefault()
+      sortList(e.target.value)
+    })
+
   function sortList(dropdown_value) {
 
-    let list = document.getElementById("list");
-    let switching = true;
+    let switching = true
 
       while (switching) {
         switching = false
-        let b = list.getElementsByClassName("col-md-2half");
+        let b = document.getElementsByClassName("col-md-2half");
         for (let i=0; i < (b.length - 1); i++) {
 
           //To sort by number in ascending order
           if (dropdown_value === "Sort By" || dropdown_value === "opt 1"){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
-                b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                switching = true;
+                b[i].parentNode.insertBefore(b[i + 1], b[i])
+                switching = true
             }
           }
 
@@ -120,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function(){
           //To sort by number in descending order
           else if (dropdown_value === "opt 2"){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
-                b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                switching = true;
+                b[i].parentNode.insertBefore(b[i + 1], b[i])
+                switching = true
             }
           }
 
@@ -129,8 +143,8 @@ document.addEventListener('DOMContentLoaded', function(){
           //To sort by name in ascending order
           else if (dropdown_value === "opt 3"){
             if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
-                b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                switching = true;
+                b[i].parentNode.insertBefore(b[i + 1], b[i])
+                switching = true
             }
           }
 
@@ -138,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function(){
           //To sort by name in descending order
           else if (dropdown_value === "opt 4"){
             if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
-                b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                switching = true;
+                b[i].parentNode.insertBefore(b[i + 1], b[i])
+                switching = true
             }
           }
 
@@ -154,5 +168,45 @@ document.addEventListener('DOMContentLoaded', function(){
     return name.charAt(0).toUpperCase() + name.slice(1)
   }
   
+
+  /*************Function to filter the search list***********************************************************************/
+
+  function filter_search_list(){
+
+    let search_button = document.getElementById('search-pokemon-btn')
+    let b = document.getElementsByClassName("col-md-2half")
+
+    search_button.addEventListener('click',function(e){
+      e.preventDefault()
+      
+      let input_text = document.getElementById('input-text').value.toLowerCase()
+
+      for (let i=0; i < b.length; i++){
+
+        if(b[i].childNodes[5].textContent.toLowerCase().indexOf(input_text)>-1){
+          b[i].style.display = ""
+        }
+
+        else{
+          b[i].style.display = "none"
+        }
+
+      }
+      
+    })
+
+    
+
+  }
+
+
+
+
+
+
+
+
+
+
 
 })

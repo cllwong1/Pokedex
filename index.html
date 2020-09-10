@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Pokedex</title>
   </head>
   <body>
@@ -19,6 +20,15 @@
         <div id="main-content-carousel"></div>
         <div id="list-of-all-pokemons">
           <div class="row">
+            <div id="search-bar">
+              
+              <form class="form-inline">
+                <input id="input-text" class="form-control" type="text" placeholder="Find Pokemon">
+                <button id="search-pokemon-btn" class="btn btn-dark" type="submit"><i class="fa fa-search"></i></button>
+                <!-- <p id="no-pokemon-found">No match found</p> -->
+              </form>
+
+            </div>
             <div id="sort-bar">
                 <select class="form-control" id="dropdown_list">
                   <option selected>Sort By</option>
