@@ -33,7 +33,7 @@
 .col-md-2half{
   border: 1px solid black;
   border-radius: 20px;
-  margin: 1% auto;
+  margin: 1% 1%;
   padding: 0% 2% 2% 2%;
   width: 23%;
 }
