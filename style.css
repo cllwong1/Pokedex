@@ -1,3 +1,5 @@
+/*****************IMAGE & IMAGE WRAPPER***********************************************************************/
+
 .image-wrapper{
   position: relative;
   overflow: hidden;
@@ -18,23 +20,14 @@
   padding: 12.5%;
 }
 
+
+
+/***************ROW & EACH COLUMN (MODIFIED)*************************************************************************/
+
 .row{
     margin: 0 auto;
     padding: 2% 10%;
     
-}
-
-.pokemon-id{
-  font-size: 1.2em;
-  float: left;
-  margin-left: 2.5%;
-}
-
-.pokemon-name{
-  font-size: 1.5em;
-  display: block;
-  text-align: center;
-  margin: 3% auto;
 }
 
 .col-md-2half{
@@ -51,26 +44,45 @@
   }
 }
 
-.text-box{
-  display: inline-block;
+
+/*********************POKEMON NAME & ID**************************************************************/
+
+.pokemon-id{
+  font-size: 1.2em;
+  float: left;
+  margin-left: 2.5%;
+}
+
+.pokemon-name{
+  font-size: 1.5em;
+  display: block;
   text-align: center;
-  width: 45%;
+  margin: 3% auto;
+}
+
+
+
+/************TYPE OF POKEMON TEXT BOX*****************************************************************************/
+
+.text-box{
+  text-align: center;
   border-radius: 10px;
   border: 1px solid black;
   font-size: 0.9em;
+  width: 45%;
+  display: inline-block;
   margin-left: 4%;
 }
 
 .text-box:last-of-type{
   margin-left: 0;
-}
+} 
 
-/* #dropdown_list{
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-} */
 
+
+
+
+/************SORT BAR******************************************************************/
 #sort-bar{
   display: inline-block;
   margin: 0 auto;

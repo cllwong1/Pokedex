@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=20',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=40',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let dropdownlist = document.getElementById('dropdown_list')
     dropdownlist.addEventListener('change',function(e){
+      e.preventDefault()
       sortList(e.target.value)
     })
 
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
         </div>
         <span class="pokemon-name">${data.name}</span>
-        <div class="text-box">
+        <div class="text-box one" style="margin:0 auto;display:block">
           <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
         </div>
         `
