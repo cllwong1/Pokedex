@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=40',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=200',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let order_number = "" + data.id
     let format = "000"
     let number = format.substring(0, format.length - order_number.length) + order_number
-    
+    let pokemon_name = first_letter_capitalize(data.name)
     
     if(data.types.length === 1){
       div.innerHTML = `
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="image-wrapper">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
         </div>
-        <span class="pokemon-name">${data.name}</span>
+        <span class="pokemon-name">${pokemon_name}</span>
         <div class="text-box one" style="margin:0 auto;display:block">
           <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
         </div>
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <div class="image-wrapper">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
           </div>
-          <span class="pokemon-name">${data.name}</span>
+          <span class="pokemon-name">${pokemon_name}</span>
           <div class="text-box">
             <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
           </div>
@@ -148,8 +148,11 @@ document.addEventListener('DOMContentLoaded', function(){
       }
   }
 
+  /*****************Function to capitalize the first letter************************************************************************/
 
-
-
+  function first_letter_capitalize(name){
+    return name.charAt(0).toUpperCase() + name.slice(1)
+  }
+  
 
 })
