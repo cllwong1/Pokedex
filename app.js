@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=40',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function(){
   /***************************Function to extract the API files**************************************************************/
 
   function extract_data(data){
-
+    
+    $('#no-pokemon-found').hide()
     input_data(data)
     sortList("Sort By")
     filter_search_list()
@@ -85,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     div_row.append(div)
-
   }
 
 
@@ -114,15 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                load_more()
-
                 
-
-               
-
-
-
-
             }
           }
 
@@ -132,14 +124,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                load_more()
-
-
-
                 
-
-                
-
             }
           }
 
@@ -149,13 +134,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                load_more()
-
-
-
                 
-
-
             }
           }
 
@@ -165,20 +144,16 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                load_more()
-
-
-               
-
-
-
-
+                
             }
           }
 
-
+          
         }
+
+        
       }
+      load_more()
   }
 
   /*****************Function to capitalize the first letter************************************************************************/
@@ -191,27 +166,40 @@ document.addEventListener('DOMContentLoaded', function(){
   /*************Function to filter the search list***********************************************************************/
 
   function filter_search_list(){
-
+    
     let search_button = document.getElementById('search-pokemon-btn')
     let b = document.getElementsByClassName("col-md-2half")
 
     search_button.addEventListener('click',function(e){
       e.preventDefault()
+      $('#load-more-btn').hide()
       
+
       let input_text = document.getElementById('input-text').value.toLowerCase()
+        if (input_text===""){
+          window.location.reload()
+        }
 
-      for (let i=0; i < b.length; i++){
+        for (let i=0; i < b.length; i++){
 
-        if(b[i].childNodes[5].textContent.toLowerCase().indexOf(input_text)>-1){
-          b[i].style.display = "block"
+          if(b[i].childNodes[5].textContent.toLowerCase().indexOf(input_text)>-1){
+            b[i].style.display = "block"
+          }
+
+          else{
+            b[i].style.display = "none"
+          }
+
+        }
+
+        if ($('.col-md-2half:visible').length === 0){
+          $('#no-pokemon-found').show()
         }
 
         else{
-          b[i].style.display = "none"
+          $('#no-pokemon-found').hide()
         }
-
-      }
-
+      
     })
     
   }
@@ -219,28 +207,44 @@ document.addEventListener('DOMContentLoaded', function(){
   /***********************Load for more function**************************************************************/
 
   function load_more (){
+    $('#no-pokemon-found').hide()
 
     let col = $('#list .col-md-2half')
-    let show_po = $('.col-md-2half:visible')
-    let hide_po = $('.col-md-2half:hidden')
-            
+        
     col.slice(0,20).show()
-
-    if (show_po.length>20){
-        col.hide()
-    }
-
+    col.slice(20,100).hide()
+    
     let load_more_btn = $('#load-more-btn')
+    load_more_btn.show()
+      let n=20
+      load_more_btn.on('click',function(e){
 
-        load_more_btn.on('click',function(e){
         e.preventDefault()
-        hide_po.slice(0,20).slideDown()
-        if(hide_po.length === 0){
+        
+        if (n===20){
+          col.slice(n,n+20).show().slideDown()
+          col.slice(n+20,100).hide()
+        }
+
+        else if (n===40){
+          col.slice(n,n+20).show().slideDown()
+          col.slice(n+20,100).hide()
+        }
+
+        else if (n===60){
+          col.slice(n,n+20).show().slideDown()
+          col.slice(n+20,100).hide()
+        }
+
+        else if (n===80){
+          col.slice(n,n+20).show().slideDown()
           load_more_btn.text("No more pokemon").addClass("noContent")
         }
+
+        n+=20
+        
       })
-    
-    
+      
   }
 
   
