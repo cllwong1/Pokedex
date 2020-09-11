@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function(){
     input_data(data)
     sortList("Sort By")
     filter_search_list()
-    // load_more()
+    load_more()
   }
 
 
@@ -111,16 +111,27 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+                // load_more()
 
-
-                let col = $('#list .col-md-2half')
-                let show_po = $('.col-md-2half:visible')
-                let hide_po = $('.col-md-2half:hidden')
+                // let col = $('#list .col-md-2half')
+                // let show_po = $('.col-md-2half:visible')
+                // let hide_po = $('.col-md-2half:hidden')
             
-                col.slice(0,20).show()
-                if (show_po.length>20){
-                  col.hide()
-                }
+                // col.slice(0,20).show()
+                // if (show_po.length>20){
+                //   col.hide()
+                // }
+
+                // let load_more_btn = $('#load-more-btn')
+
+                // load_more_btn.on('click',function(e){
+                //   e.preventDefault()
+                //   hide_po.slice(0,20).slideDown()
+                // })
+
+
+
+
 
 
 
@@ -133,18 +144,18 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+                load_more()
 
 
 
-
-                let col = $('#list .col-md-2half')
-                let show_po = $('.col-md-2half:visible')
-                let hide_po = $('.col-md-2half:hidden')
+                // let col = $('#list .col-md-2half')
+                // let show_po = $('.col-md-2half:visible')
+                // let hide_po = $('.col-md-2half:hidden')
             
-                col.slice(0,20).show()
-                if (show_po.length>20){
-                  col.hide()
-                }
+                // col.slice(0,20).show()
+                // if (show_po.length>20){
+                //   col.hide()
+                // }
 
 
 
@@ -157,18 +168,18 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+                load_more()
 
 
 
-
-                let col = $('#list .col-md-2half')
-                let show_po = $('.col-md-2half:visible')
-                let hide_po = $('.col-md-2half:hidden')
+                // let col = $('#list .col-md-2half')
+                // let show_po = $('.col-md-2half:visible')
+                // let hide_po = $('.col-md-2half:hidden')
             
-                col.slice(0,20).show()
-                if (show_po.length>20){
-                  col.hide()
-                }
+                // col.slice(0,20).show()
+                // if (show_po.length>20){
+                //   col.hide()
+                // }
 
 
 
@@ -181,17 +192,17 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+                load_more()
 
 
-
-                let col = $('#list .col-md-2half')
-                let show_po = $('.col-md-2half:visible')
-                let hide_po = $('.col-md-2half:hidden')
+                // let col = $('#list .col-md-2half')
+                // let show_po = $('.col-md-2half:visible')
+                // let hide_po = $('.col-md-2half:hidden')
             
-                col.slice(0,20).show()
-                if (show_po.length>20){
-                  col.hide()
-                }
+                // col.slice(0,20).show()
+                // if (show_po.length>20){
+                //   col.hide()
+                // }
 
 
 
@@ -243,21 +254,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /***********************Load for more function**************************************************************/
 
-  // function load_more (){
+  function load_more (){
 
-  //   let abc = Array.from(document.querySelectorAll('.col-md-2half'))
-  //   let maxItems = 20
-  //   let hiddenClass = "visually-hidden"
+    let col = $('#list .col-md-2half')
+    let show_po = $('.col-md-2half:visible')
+    let hide_po = $('.col-md-2half:hidden')
+            
+    col.slice(0,20).show()
 
-  //   abc.forEach(function(item,idx){
-  //   if (idx > maxItems - 1){
-  //     item.classList.add(hiddenClass)
-  //   }
+    if (show_po.length>20){
+        col.hide()
+    }
 
-  // })
+    let load_more_btn = $('#load-more-btn')
+
+        load_more_btn.on('click',function(e){
+        e.preventDefault()
+        hide_po.slice(0,20).slideDown()
+      })
     
     
-  // }
+  }
 
   
 
