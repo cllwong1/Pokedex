@@ -134,10 +134,16 @@
 
 
 .visually-hidden {  
-  /* overflow: hidden;
-  height: 1px; width: 1px; 
+  overflow: hidden;
+  
+  /* line-height: 1em;
+  
+  /* height: 1px; width: 1px; 
   margin: -1px; padding: 0; border: 0;  */
-  display: none;
+  /* display: none; */
 }
 
+.col-md-2half{
+  display: none;
+}
 

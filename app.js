@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function(){
     input_data(data)
     sortList("Sort By")
     filter_search_list()
-    load_more()
+    // load_more()
   }
 
 
@@ -111,6 +111,19 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+
+
+                let col = $('#list .col-md-2half')
+                let show_po = $('.col-md-2half:visible')
+                let hide_po = $('.col-md-2half:hidden')
+            
+                col.slice(0,20).show()
+                if (show_po.length>20){
+                  col.hide()
+                }
+
+
+
             }
           }
 
@@ -120,6 +133,21 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+
+
+
+
+                let col = $('#list .col-md-2half')
+                let show_po = $('.col-md-2half:visible')
+                let hide_po = $('.col-md-2half:hidden')
+            
+                col.slice(0,20).show()
+                if (show_po.length>20){
+                  col.hide()
+                }
+
+
+
             }
           }
 
@@ -129,6 +157,21 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+
+
+
+
+                let col = $('#list .col-md-2half')
+                let show_po = $('.col-md-2half:visible')
+                let hide_po = $('.col-md-2half:hidden')
+            
+                col.slice(0,20).show()
+                if (show_po.length>20){
+                  col.hide()
+                }
+
+
+
             }
           }
 
@@ -138,6 +181,23 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
+
+
+
+                let col = $('#list .col-md-2half')
+                let show_po = $('.col-md-2half:visible')
+                let hide_po = $('.col-md-2half:hidden')
+            
+                col.slice(0,20).show()
+                if (show_po.length>20){
+                  col.hide()
+                }
+
+
+
+
+
+
             }
           }
 
@@ -168,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function(){
       for (let i=0; i < b.length; i++){
 
         if(b[i].childNodes[5].textContent.toLowerCase().indexOf(input_text)>-1){
-          b[i].style.display = ""
+          b[i].style.display = "block"
         }
 
         else{
@@ -183,50 +243,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /***********************Load for more function**************************************************************/
 
-  function load_more (){
+  // function load_more (){
 
-    let abc = Array.from(document.querySelectorAll('.col-md-2half'))
-    let maxItems = 20
-    let hiddenClass = "visually-hidden"
+  //   let abc = Array.from(document.querySelectorAll('.col-md-2half'))
+  //   let maxItems = 20
+  //   let hiddenClass = "visually-hidden"
 
-    abc.forEach(function(item,idx){
-    if (idx > maxItems - 1){
-      item.classList.add(hiddenClass)
-    }
+  //   abc.forEach(function(item,idx){
+  //   if (idx > maxItems - 1){
+  //     item.classList.add(hiddenClass)
+  //   }
 
-  })
+  // })
     
     
-  }
+  // }
 
   
 
   
   
-  let abc = Array.from(document.querySelectorAll('.content'))
-  let maxItems = 10
-  let hiddenClass = "visually-hidden"
-
-  abc.forEach(function(item,idx){
-    if (idx > maxItems - 1){
-      item.classList.add(hiddenClass)
-    }
-
-  })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
 
