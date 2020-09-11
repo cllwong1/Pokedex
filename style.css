@@ -116,7 +116,7 @@
   padding: 1%;
   border-radius: 30px;
   background-color: black;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 #load-more-btn:hover{
@@ -132,16 +132,6 @@
   pointer-events: none;
 }
 
-
-.visually-hidden {  
-  overflow: hidden;
-  
-  /* line-height: 1em;
-  
-  /* height: 1px; width: 1px; 
-  margin: -1px; padding: 0; border: 0;  */
-  /* display: none; */
-}
 
 .col-md-2half{
   display: none;

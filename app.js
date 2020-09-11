@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function(){
     sortList("Sort By")
     filter_search_list()
     load_more()
+    
+
   }
 
 
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function(){
     dropdownlist.addEventListener('change',function(e){
       e.preventDefault()
       sortList(e.target.value)
+      $('#load-more-btn').text("More Pokemons").removeClass('noContent')
     })
 
   function sortList(dropdown_value) {
@@ -111,26 +114,11 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                // load_more()
+                load_more()
 
-                // let col = $('#list .col-md-2half')
-                // let show_po = $('.col-md-2half:visible')
-                // let hide_po = $('.col-md-2half:hidden')
-            
-                // col.slice(0,20).show()
-                // if (show_po.length>20){
-                //   col.hide()
-                // }
+                
 
-                // let load_more_btn = $('#load-more-btn')
-
-                // load_more_btn.on('click',function(e){
-                //   e.preventDefault()
-                //   hide_po.slice(0,20).slideDown()
-                // })
-
-
-
+               
 
 
 
@@ -148,16 +136,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-                // let col = $('#list .col-md-2half')
-                // let show_po = $('.col-md-2half:visible')
-                // let hide_po = $('.col-md-2half:hidden')
-            
-                // col.slice(0,20).show()
-                // if (show_po.length>20){
-                //   col.hide()
-                // }
+                
 
-
+                
 
             }
           }
@@ -172,15 +153,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-                // let col = $('#list .col-md-2half')
-                // let show_po = $('.col-md-2half:visible')
-                // let hide_po = $('.col-md-2half:hidden')
-            
-                // col.slice(0,20).show()
-                // if (show_po.length>20){
-                //   col.hide()
-                // }
-
+                
 
 
             }
@@ -195,16 +168,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 load_more()
 
 
-                // let col = $('#list .col-md-2half')
-                // let show_po = $('.col-md-2half:visible')
-                // let hide_po = $('.col-md-2half:hidden')
-            
-                // col.slice(0,20).show()
-                // if (show_po.length>20){
-                //   col.hide()
-                // }
-
-
+               
 
 
 
@@ -271,6 +235,9 @@ document.addEventListener('DOMContentLoaded', function(){
         load_more_btn.on('click',function(e){
         e.preventDefault()
         hide_po.slice(0,20).slideDown()
+        if(hide_po.length === 0){
+          load_more_btn.text("No more pokemon").addClass("noContent")
+        }
       })
     
     
