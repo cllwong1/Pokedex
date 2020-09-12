@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) > Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                
+                // load_more()
             }
           }
 
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (Number(b[i].childNodes[1].textContent) < Number(b[i + 1].childNodes[1].textContent)) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                
+                // load_more()
             }
           }
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() > b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                
+                // load_more()
             }
           }
 
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (b[i].childNodes[5].textContent.toLowerCase() < b[i + 1].childNodes[5].textContent.toLowerCase()) {
                 b[i].parentNode.insertBefore(b[i + 1], b[i])
                 switching = true
-                
+                // load_more()
             }
           }
 
