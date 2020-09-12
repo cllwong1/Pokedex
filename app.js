@@ -222,22 +222,22 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault()
         
         if (n===20){
-          col.slice(n,n+20).show().slideDown()
+          col.slice(0,n+20).show().slideDown()
           col.slice(n+20,100).hide()
         }
 
         else if (n===40){
-          col.slice(n,n+20).show().slideDown()
+          col.slice(0,n+20).show().slideDown()
           col.slice(n+20,100).hide()
         }
 
         else if (n===60){
-          col.slice(n,n+20).show().slideDown()
+          col.slice(0,n+20).show().slideDown()
           col.slice(n+20,100).hide()
         }
 
         else if (n===80){
-          col.slice(n,n+20).show().slideDown()
+          col.slice(0,n+20).show().slideDown()
           load_more_btn.text("No more pokemon").addClass("noContent")
         }
 
@@ -253,15 +253,3 @@ document.addEventListener('DOMContentLoaded', function(){
   
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
