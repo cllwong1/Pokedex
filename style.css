@@ -101,10 +101,6 @@
 
 /*********************SEARCH BAR*****************************************************************/
 #search-bar{
-  /* display: block;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%; */
   width: 40%;
   margin: 0 auto;
 }
@@ -170,7 +166,7 @@
 .grass{
   background-color: #9bc400;
   border-color: #9bc400;
-  color:beige;
+  
 }
 
 .poison{
@@ -184,13 +180,40 @@
 @media screen and (max-width: 893px){
   .col-md-2half{
     width: 45%;
+    margin: 2% auto;
   }
 
   .carousel-item{
-    height: 300px;
+    height: 200px;
     
   }
 
+  #sort-bar{
+    width: 80%;
+  }
+
+  #search-bar{
+    width: 80%;
+    margin: 5% auto;
+  }
+
+  #dropdown_list{
+    font-size: 0.9em;
+    
+  }
+  
+  #input-text{
+    font-size: 0.9em;
+  }
+
+  #load-more-btn{
+    font-size: 0.8em;
+  }
+
+
+  body{
+    animation-iteration-count: none;
+  }
 
 }
 
