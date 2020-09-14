@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function(){
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
         </div>
         <span class="pokemon-name">${pokemon_name}</span>
-        <div class="text-box one" style="margin:0 auto;display:block">
-          <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
+        <div class="text-box one ${data.types[0].type.name}" style="margin:0 auto;display:block">
+          <span>${data.types[0].type.name}</span>
         </div>
         `
     }
@@ -76,11 +76,11 @@ document.addEventListener('DOMContentLoaded', function(){
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" class="pokemon_image"><br>
           </div>
           <span class="pokemon-name">${pokemon_name}</span>
-          <div class="text-box">
-            <span class=${data.types[0].type.name}>${data.types[0].type.name}</span>
+          <div class="text-box ${data.types[0].type.name}">
+            <span>${data.types[0].type.name}</span>
           </div>
-          <div class="text-box">
-            <span class=${data.types[1].type.name}>${data.types[1].type.name}</span>
+          <div class="text-box ${data.types[1].type.name}">
+            <span>${data.types[1].type.name}</span>
           </div>
           `
     }

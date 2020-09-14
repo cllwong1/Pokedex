@@ -8,7 +8,8 @@
   display: block;
   width: 100%;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid white;
+  background-color: white;
 }
 
 .pokemon_image{
@@ -31,12 +32,15 @@
 }
 
 .col-md-2half{
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 20px;
   margin: 1% 1%;
   padding: 0% 2% 2% 2%;
   width: 23%;
+  background-image: url('45636.jpg');
+  background-size: 100% 100%;
 }
+
 
 
 
@@ -114,7 +118,7 @@
   margin: 1% auto 8% auto;
   padding: 1%;
   border-radius: 30px;
-  background-color: black;
+  background-color: grey;
   transition: 0.3s;
 }
 
@@ -126,7 +130,7 @@
 }
 
 .noContent {
-  color: black !important;
+  color: white !important;
   background-color: transparent !important;
   pointer-events: none;
 }
@@ -145,7 +149,35 @@
   height: 650px;
   padding: 0 10%;
   background: black;
+  
 }
+
+
+
+
+/***********************Define the color for each type********************************************************************************/
+
+.grass{
+  background-color: #9bc400;
+  border-color: #9bc400;
+  color:beige;
+}
+
+.poison{
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+
+
+body{
+  color: beige;
+  background-color: black;
+}
+
+
+
+
 
 
 
@@ -163,3 +195,53 @@
 
 
 }
+
+
+/******************CSS Animation*********************************************/
+
+
+
+
+#list-of-all-pokemons{
+  
+	position: relative;
+	z-index: 301;
+	
+}
+
+@keyframes STAR-MOVE {
+	from {
+		left: -100em;
+		top: 0;
+	}
+	to { 
+		left: 1000px;
+		bottom: -1000px;
+	}
+}
+
+#midground {
+	background: url('midground.png') repeat 20% 20%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 200;
+	
+	animation-name: STAR-MOVE;
+	animation-duration: 150s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+#foreground {
+	background: url('foreground.png') repeat 35% 35%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 300;
+	
+	animation-name: STAR-MOVE;
+	animation-duration: 100s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+
