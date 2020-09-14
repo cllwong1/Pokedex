@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=300',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -208,11 +208,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function load_more (){
     $('#no-pokemon-found').hide()
-
+    let max_pokemon = 300
     let col = $('#list .col-md-2half')
         
     col.slice(0,20).show()
-    col.slice(20,100).hide()
+    col.slice(20,max_pokemon).hide()
     
     let load_more_btn = $('#load-more-btn')
     load_more_btn.show()
@@ -221,24 +221,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
         e.preventDefault()
         
-        if (n===20){
+        if (n%20===0){
           col.slice(0,n+20).show().slideDown()
-          col.slice(n+20,100).hide()
-        }
+          col.slice(n+20,max_pokemon).hide()
 
-        else if (n===40){
-          col.slice(0,n+20).show().slideDown()
-          col.slice(n+20,100).hide()
-        }
-
-        else if (n===60){
-          col.slice(0,n+20).show().slideDown()
-          col.slice(n+20,100).hide()
-        }
-
-        else if (n===80){
-          col.slice(0,n+20).show().slideDown()
-          load_more_btn.text("No more pokemon").addClass("noContent")
+          if(n===max_pokemon-20){
+            col.slice(0,n+20).show().slideDown()
+            load_more_btn.text("No more pokemon").addClass("noContent")
+          }
         }
 
         n+=20
