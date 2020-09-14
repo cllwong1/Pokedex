@@ -57,9 +57,12 @@
 /*********************POKEMON NAME & ID**************************************************************/
 
 .pokemon-id{
-  font-size: 1.2em;
+  font-size: 1.4em;
   float: left;
-  margin-left: 2.5%;
+  color:red;
+  font-weight: bold;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
 }
 
 .pokemon-name{
@@ -67,6 +70,7 @@
   display: block;
   text-align: center;
   margin: 3% auto;
+  color:#DDDDDD;
 }
 
 
@@ -76,11 +80,13 @@
 .text-box{
   text-align: center;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid;
   font-size: 0.9em;
   width: 45%;
   display: inline-block;
   margin-left: 4%;
+  color: black;
+  font-weight: 500;
 }
 
 .text-box:last-of-type{
@@ -164,14 +170,98 @@
 /***********************Define the color for each type********************************************************************************/
 
 .grass{
-  background-color: #9bc400;
-  border-color: #9bc400;
-  
+  background-color: #7CFC00;
+  border-color: #7CFC00;
 }
 
 .poison{
-  background-color: blueviolet;
-  border-color: blueviolet;
+  background-color: #EE82EE;
+  border-color: #EE82EE;
+}
+
+.normal{
+  background-color: #D3D3D3;
+  border-color: #D3D3D3;
+}
+
+.fire{
+  background-color: #ff3300;
+  border-color: #ff3300;
+}
+
+.electric{
+  background-color: #FFFF66;
+  border-color: #FFFF66;
+}
+
+.ice{
+  background-color: #9EE4D9;
+  border-color: #9EE4D9;
+}
+
+.fighting{
+  background-color: #FF8C00;
+  border-color: #FF8C00;
+}
+
+.ground{
+  background-color: #CD853F;
+  border-color: #CD853F;
+}
+
+.flying{
+  background-color: #B0E0E6;
+  border-color: #B0E0E6;
+}
+
+.psychic{
+  background-color: #EE82EE;
+  border-color: #EE82EE;
+}
+
+.bug{
+  background-color: #6B8E23;
+  border-color: #6B8E23;
+}
+
+.rock{
+  background-color: #DEB887;
+  border-color: #DEB887;
+}
+
+.ghost{
+  background-color: #4B0082;
+  border-color: #4B0082;
+}
+
+.dragon{
+  background-color:	#DC143C;
+  border-color: #DC143C;
+}
+
+.dark{
+  background-color:	#696969;
+  border-color:	#696969;
+}
+
+.steel{
+  background-color: #708090;
+  border-color: #708090;
+}
+
+.fairy{
+  background-color:	#FFB6C1;
+  border-color:	#FFB6C1;
+}
+
+.steel{
+  background-color: #708090;
+  border-color: #708090;
+}
+
+.water{
+  background-color: #00BFFF;
+  border-color: #00BFFF;
 }
 
 
@@ -210,6 +300,9 @@
     font-size: 0.8em;
   }
 
+  .pokemon-id{
+    margin-left: 2.5%;
+  }
 
   body{
     animation-iteration-count: none;
