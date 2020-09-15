@@ -38,6 +38,15 @@ document.addEventListener('DOMContentLoaded', function(){
     sortList("Sort By")
     filter_search_list()
     load_more()
+
+    $(window).scroll(function(){
+      if($(this).scrollTop()>2200){
+        $('#back-to-top-btn').fadeIn()
+      }
+      else{
+        $('#back-to-top-btn').fadeOut()
+      }
+    })
     
 
   }
@@ -237,9 +246,13 @@ document.addEventListener('DOMContentLoaded', function(){
       
   }
 
+  /*****************************Back to top function*************************************************************************/
+  
+  
+  
   
 
-  
-  
+
+
 
 })

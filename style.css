@@ -132,6 +132,7 @@
   border-radius: 30px;
   background-color: grey;
   transition: 0.3s;
+  font-size: 1.2em;
 }
 
 #load-more-btn:hover{
@@ -146,6 +147,33 @@
   background-color: transparent !important;
   pointer-events: none;
 }
+
+
+#back-to-top-btn{
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1%;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: none;
+  color: blue;
+  display: none;
+}
+
+#back-to-top-btn:hover{
+  color: white;
+  background-color: blue;
+}
+
+
+
+
+
+
+
 
 
 /****************Carousel inner Image************************************************************************/
@@ -306,6 +334,10 @@
 
   body{
     animation-iteration-count: none;
+  }
+
+  #back-to-top-btn{
+    font-size: 0.7em;
   }
 
 }
