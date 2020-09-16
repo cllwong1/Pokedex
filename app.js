@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
     load_more()
 
     $(window).scroll(function(){
-      if($(this).scrollTop()>2200){
+      if($(this).scrollTop()>3000){
         $('#back-to-top-btn').fadeIn()
       }
       else{

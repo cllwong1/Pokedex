@@ -184,8 +184,12 @@
 .carousel-item{
   height: 650px;
   padding: 0 10%;
-  background: black;
+  background-image: url('sky_3.jpg');
   
+}
+
+#main-content-carousel{
+  margin-bottom: 20px;
 }
 
 
@@ -288,15 +292,20 @@
 
 
 /*******************************************Body Header*********************************************************/
+.navbar{
+  background-color: black;
 
+}
 
 .navbar-brand{
   margin: 0 auto;
   background-color: black;
+  width: 20%;
 }
 
 .navbar-brand img{
-  height: 70px;
+  height: 100%;
+  width: 100%;
 }
 
 .message-1{
@@ -314,6 +323,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+}
+
+
+
+/*****************Body Footer********************************************************************/
+#footer-first-section{
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+}
+
+#footer-second-section{
+  background-color: #2876f9;
+  background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+}
+
+#footer-second-section a{
+  text-decoration: none;
+  color: white;
 }
 
 
