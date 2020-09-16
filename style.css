@@ -62,15 +62,18 @@
   color:red;
   font-weight: bold;
   -webkit-text-stroke-color: white;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 0.2px;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Slackey', cursive;
 }
 
 .pokemon-name{
-  font-size: 1.5em;
+  font-size: 1.2em;
   display: block;
   text-align: center;
   margin: 3% auto;
-  color:#DDDDDD;
+  color: white;
+  font-family: 'Slackey', cursive;
 }
 
 
@@ -170,12 +173,6 @@
 
 
 
-
-
-
-
-
-
 /****************Carousel inner Image************************************************************************/
 
 .carousel-inner img{
@@ -184,15 +181,12 @@
  
 }
 
-
 .carousel-item{
   height: 650px;
   padding: 0 10%;
   background: black;
   
 }
-
-
 
 
 /***********************Define the color for each type********************************************************************************/
@@ -293,6 +287,60 @@
 }
 
 
+/*******************************************Body Header*********************************************************/
+
+
+.navbar-brand{
+  margin: 0 auto;
+  background-color: black;
+}
+
+.navbar-brand img{
+  height: 70px;
+}
+
+.message-1{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+
+#heading{
+  font-family: 'Press Start 2P', cursive;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+/******************CSS Animation*********************************************/
+
+body{
+  background-image: url('sky.jpg');
+  animation-name: move;
+	animation-duration: 150s;
+	animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: beige;
+  background-color: black;
+}
+
+
+
+@keyframes move{
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+
 
 /********************Responsive Media**********************************************************************/
 @media screen and (max-width: 893px){
@@ -332,37 +380,33 @@
     margin-left: 2.5%;
   }
 
-  body{
-    animation-iteration-count: none;
+  .pokemon-name{
+    font-size: 1em;;
   }
 
   #back-to-top-btn{
     font-size: 0.7em;
   }
 
-}
-
-
-/******************CSS Animation*********************************************/
-
-body{
-  background-image: url('sky.jpg');
-  animation-name: move;
-	animation-duration: 150s;
-	animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  color: beige;
-  background-color: black;
-}
-
-
-
-@keyframes move{
-  from {
-    background-position: 0 0;
+  .navbar-brand{
+    width: 20%;
+    height: 80px;
   }
-  to {
-    background-position: 100% 0;
+
+  .navbar-brand img{
+   width: 100%;
+   height: 100%;
   }
+
+  .message-1{
+    width: 40%;
+    font-size: 0.9em;
+  }
+
+  body{
+    animation-name: move;
+	  animation-duration: 8s;
+  }
+
 }
 

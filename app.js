@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=300',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
     dropdownlist.addEventListener('change',function(e){
       e.preventDefault()
       sortList(e.target.value)
-      $('#load-more-btn').text("More Pokemons").removeClass('noContent')
+      $('#load-more-btn').text("More Pokémons").removeClass('noContent')
     })
 
   function sortList(dropdown_value) {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function load_more (){
     $('#no-pokemon-found').hide()
-    let max_pokemon = 300
+    let max_pokemon = 100
     let col = $('#list .col-md-2half')
         
     col.slice(0,20).show()
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
           if(n===max_pokemon-20){
             col.slice(0,n+20).show().slideDown()
-            load_more_btn.text("No more pokemon").addClass("noContent")
+            load_more_btn.text("No more pokémon").addClass("noContent")
           }
         }
 
