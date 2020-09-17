@@ -19,26 +19,27 @@ document.addEventListener('DOMContentLoaded', function(){
           success: function(data){
 
             //Extract the data using the function
-            extract_data(data)
+            input_data(data)
+            sortList("Sort By")
           }
         })
       })
     }
   })
-  
 
+  $(document).ajaxStop(function () {
+    setup_data();
+  });
+
+  
 
 
   /***************************Function to extract the API files**************************************************************/
 
-  function extract_data(data){
-    
+  function setup_data(){
     $('#no-pokemon-found').hide()
-    input_data(data)
-    sortList("Sort By")
-    filter_search_list()
     load_more()
-
+    console.log($('.col-md-2half'))
     $(window).scroll(function(){
       if($(this).scrollTop()>3000){
         $('#back-to-top-btn').fadeIn()
@@ -47,8 +48,6 @@ document.addEventListener('DOMContentLoaded', function(){
         $('#back-to-top-btn').fadeOut()
       }
     })
-    
-
   }
 
 
@@ -107,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault()
       sortList(e.target.value)
       $('#load-more-btn').text("More Pokémons").removeClass('noContent')
+      
     })
 
   function sortList(dropdown_value) {
@@ -162,7 +162,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         
       }
-      load_more()
+      
+      let input_text = document.getElementById('input-text').value
+      if(input_text===""){
+        load_more()
+      }
+
   }
 
   /*****************Function to capitalize the first letter************************************************************************/
@@ -174,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /*************Function to filter the search list***********************************************************************/
 
-  function filter_search_list(){
     
     let search_button = document.getElementById('search-pokemon-btn')
     let b = document.getElementsByClassName("col-md-2half")
@@ -186,7 +190,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
       let input_text = document.getElementById('input-text').value.toLowerCase()
         if (input_text===""){
-          window.location.reload()
+          $("#load-more-btn").text("More Pokémons").removeClass("noContent");
+          return load_more();
         }
 
         for (let i=0; i < b.length; i++){
@@ -208,45 +213,45 @@ document.addEventListener('DOMContentLoaded', function(){
         else{
           $('#no-pokemon-found').hide()
         }
-      
+        
     })
     
-  }
+  
 
   /***********************Load for more function**************************************************************/
 
+  let n = 20; //The number of visible pokemon.
+  let max_pokemon = 100;
+  let load_more_btn = $("#load-more-btn");
+
   function load_more (){
     $('#no-pokemon-found').hide()
-    let max_pokemon = 100
     let col = $('#list .col-md-2half')
-        
+    n = 20
     col.slice(0,20).show()
     col.slice(20,max_pokemon).hide()
-    
-    let load_more_btn = $('#load-more-btn')
-    load_more_btn.show()
-      let n=20
-      load_more_btn.on('click',function(e){
-
-        e.preventDefault()
-        
-        if (n%20===0){
-          col.slice(0,n+20).show().slideDown()
-          col.slice(n+20,max_pokemon).hide()
-
-          if(n===max_pokemon-20){
-            col.slice(0,n+20).show().slideDown()
-            load_more_btn.text("No more pokémon").addClass("noContent")
-          }
-        }
-
-        n+=20
-        
-      })
-      
+    return load_more_btn.show()
   }
 
-  /*****************************Back to top function*************************************************************************/
+
+  load_more_btn.on("click", function (e) {
+    let col = $("#list .col-md-2half");
+
+    e.preventDefault();
+
+    if (n % 20 === 0) {
+
+      col
+        .slice(0, n + 20)
+        .show()
+        .slideDown();
+      col.slice(n + 20, max_pokemon).hide();
+      n += 20;
+      if (n === 100) {
+        load_more_btn.text("No more pokémon").addClass("noContent");
+      }
+    }
+  })
   
   
   
