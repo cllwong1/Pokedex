@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /*********************************Call the API using AJAX************************************************************/
   $.ajax({
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=500',
     error: function(){
       alert('API call to pokemon endpoint failed')
     },
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function(){
   })
 
   $(document).ajaxStop(function () {
-    setup_data();
-  });
+    setup_data()
+  })
 
   
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
   function setup_data(){
     $('#no-pokemon-found').hide()
     load_more()
-    console.log($('.col-md-2half'))
+    
     $(window).scroll(function(){
       if($(this).scrollTop()>3000){
         $('#back-to-top-btn').fadeIn()
@@ -186,12 +186,11 @@ document.addEventListener('DOMContentLoaded', function(){
     search_button.addEventListener('click',function(e){
       e.preventDefault()
       $('#load-more-btn').hide()
-      
-
       let input_text = document.getElementById('input-text').value.toLowerCase()
+      
         if (input_text===""){
-          $("#load-more-btn").text("More Pokémons").removeClass("noContent");
-          return load_more();
+          $("#load-more-btn").text("More Pokémons").removeClass("noContent")
+          return load_more()
         }
 
         for (let i=0; i < b.length; i++){
@@ -205,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function(){
           }
 
         }
-
         if ($('.col-md-2half:visible').length === 0){
           $('#no-pokemon-found').show()
         }
@@ -220,9 +218,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /***********************Load for more function**************************************************************/
 
-  let n = 20; //The number of visible pokemon.
-  let max_pokemon = 100;
-  let load_more_btn = $("#load-more-btn");
+  let n = 20 //The number of visible pokemon.
+  let max_pokemon = 500
+  let load_more_btn = $("#load-more-btn")
 
   function load_more (){
     $('#no-pokemon-found').hide()
@@ -235,29 +233,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   load_more_btn.on("click", function (e) {
-    let col = $("#list .col-md-2half");
+     e.preventDefault()
 
-    e.preventDefault();
+    let col = $("#list .col-md-2half")
 
-    if (n % 20 === 0) {
+        if (n % 20 === 0) {
 
-      col
-        .slice(0, n + 20)
-        .show()
-        .slideDown();
-      col.slice(n + 20, max_pokemon).hide();
-      n += 20;
-      if (n === 100) {
-        load_more_btn.text("No more pokémon").addClass("noContent");
-      }
-    }
+          col.slice(0, n + 20).show().slideDown()
+          col.slice(n + 20, max_pokemon).hide()
+          n += 20
+
+          if (n === max_pokemon) {
+            load_more_btn.text("No more pokémon").addClass("noContent")
+          }
+
+        }
   })
-  
-  
-  
-  
-
-
 
 
 })
